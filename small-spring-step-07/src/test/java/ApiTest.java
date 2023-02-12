@@ -6,12 +6,14 @@ public class ApiTest {
 
     @Test
     public void test_xml() {
-        // 1.初始化 BeanFactory
+       //1.初始化 BeanFactory
         ClassPathXmlApplicationContext applicationContext = new ClassPathXmlApplicationContext("classpath:spring.xml");
         applicationContext.registerShutdownHook();
 
-        //2.获取bean对象的调用
+        // 2. 获取Bean对象调用方法
         UserService userService = applicationContext.getBean("userService", UserService.class);
+
+        applicationContext.registerShutdownHook();
         String result = userService.queryUserInfo();
         System.out.println("测试结果：" + result);
     }
