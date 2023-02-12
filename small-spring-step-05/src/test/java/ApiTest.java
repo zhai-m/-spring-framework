@@ -20,7 +20,7 @@ public class ApiTest {
     private DefaultResourceLoader resourceLoader;
 
     @Before
-    private void init(){
+    public void init(){
         resourceLoader = new DefaultResourceLoader();
     }
 
