@@ -1,9 +1,17 @@
 package bean;
 
-import cn.zhaim.springframework.beans.factory.DisposableBean;
-import cn.zhaim.springframework.beans.factory.InitializingBean;
+import cn.zhaim.springframework.beans.BeansException;
+import cn.zhaim.springframework.beans.factory.BeanClassLoaderAware;
+import cn.zhaim.springframework.beans.factory.BeanFactory;
+import cn.zhaim.springframework.beans.factory.BeanFactoryAware;
+import cn.zhaim.springframework.beans.factory.BeanNameAware;
+import cn.zhaim.springframework.context.ApplicationContext;
+import cn.zhaim.springframework.context.ApplicationContextAware;
 
-public class UserService implements InitializingBean, DisposableBean {
+public class UserService implements BeanNameAware, BeanClassLoaderAware, BeanFactoryAware, ApplicationContextAware {
+
+    private ApplicationContext applicationContext;
+    private BeanFactory beanFactory;
 
     private String uId;
     private String company;
@@ -11,13 +19,23 @@ public class UserService implements InitializingBean, DisposableBean {
     private UserDao userDao;
 
     @Override
-    public void destroy() throws Exception {
-        System.out.println("执行：UserService.destroy");
+    public void setBeanFactory(BeanFactory beanFactory) throws BeansException {
+        this.beanFactory = beanFactory;
     }
 
     @Override
-    public void afterPropertiesSet() throws Exception {
-        System.out.println("执行：UserService.afterPropertiesSet");
+    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
+        this.applicationContext = applicationContext;
+    }
+
+    @Override
+    public void setBeanName(String name) {
+        System.out.println("Bean Name is：" + name);
+    }
+
+    @Override
+    public void setBeanClassLoader(ClassLoader classLoader) {
+        System.out.println("ClassLoader：" + classLoader);
     }
 
     public String queryUserInfo() {
@@ -55,4 +73,14 @@ public class UserService implements InitializingBean, DisposableBean {
     public void setUserDao(UserDao userDao) {
         this.userDao = userDao;
     }
+
+
+    public ApplicationContext getApplicationContext() {
+        return applicationContext;
+    }
+
+    public BeanFactory getBeanFactory() {
+        return beanFactory;
+    }
+
 }

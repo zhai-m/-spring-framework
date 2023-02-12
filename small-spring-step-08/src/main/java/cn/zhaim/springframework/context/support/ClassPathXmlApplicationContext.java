@@ -8,6 +8,7 @@ import cn.zhaim.springframework.beans.BeansException;
  * @date 2023/2/12 12:57
  */
 public class ClassPathXmlApplicationContext extends AbstractXmlApplicationContext {
+
     private String[] configLocations;
 
     public ClassPathXmlApplicationContext() {
@@ -25,7 +26,6 @@ public class ClassPathXmlApplicationContext extends AbstractXmlApplicationContex
 
     /**
      * 从 XML 中加载 BeanDefinition，并刷新上下文
-     *
      * @param configLocations
      * @throws BeansException
      */
@@ -36,6 +36,7 @@ public class ClassPathXmlApplicationContext extends AbstractXmlApplicationContex
 
     @Override
     protected String[] getConfigLocations() {
-        return new String[0];
+        return configLocations;
     }
+
 }
