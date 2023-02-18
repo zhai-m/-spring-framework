@@ -57,7 +57,9 @@ public class DefaultAdvisorAutoProxyCreator implements InstantiationAwareBeanPos
         for (AspectJExpressionPointcutAdvisor advisor : advisors) {
             ClassFilter classFilter = advisor.getPointcut().getClassFilter();
             // 过滤匹配类
-            if (!classFilter.matches(bean.getClass())) continue;
+            if (!classFilter.matches(bean.getClass())) {
+                continue;
+            }
 
             AdvisedSupport advisedSupport = new AdvisedSupport();
 

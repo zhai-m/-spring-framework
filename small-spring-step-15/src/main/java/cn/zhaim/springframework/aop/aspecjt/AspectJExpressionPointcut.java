@@ -38,13 +38,12 @@ public class AspectJExpressionPointcut implements Pointcut, ClassFilter, MethodM
 
     @Override
     public boolean matches(Method method, Class<?> targetClass) {
-        return pointcutExpression.matchesAdviceExecution(method).alwaysMatches();
+        return pointcutExpression.matchesMethodExecution(method).alwaysMatches();
     }
-
 
     @Override
     public ClassFilter getClassFilter() {
-        return null;
+        return this;
     }
 
     @Override

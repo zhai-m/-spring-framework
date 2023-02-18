@@ -5,6 +5,23 @@
 	         http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 
+<!--    <bean id="userService" class="bean.UserService">-->
+<!--        <property name="token" value="RejDlI78hu223Opo983Ds"/>-->
+<!--    </bean>-->
+
+<!--    <bean class="cn.zhaim.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator"/>-->
+
+<!--    <bean id="beforeAdvice" class="bean.UserServiceBeforeAdvice"/>-->
+
+<!--    <bean id="methodInterceptor" class="cn.zhaim.springframework.aop.framework.adapter.MethodBeforeAdviceInterceptor">-->
+<!--        <property name="advice" ref="beforeAdvice"/>-->
+<!--    </bean>-->
+
+<!--    <bean id="pointcutAdvisor" class="cn.zhaim.springframework.aop.aspecjt.AspectJExpressionPointcutAdvisor">-->
+<!--        <property name="expression" value="execution(* bean.IUserService.*(..))"/>-->
+<!--        <property name="advice" ref="methodInterceptor"/>-->
+<!--    </bean>-->
+
     <bean id="userService" class="bean.UserService">
         <property name="token" value="RejDlI78hu223Opo983Ds"/>
     </bean>
@@ -21,6 +38,5 @@
         <property name="expression" value="execution(* bean.IUserService.*(..))"/>
         <property name="advice" ref="methodInterceptor"/>
     </bean>
-
 
 </beans>

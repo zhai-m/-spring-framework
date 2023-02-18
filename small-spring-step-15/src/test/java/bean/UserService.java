@@ -3,7 +3,9 @@ package bean;
 import java.util.Random;
 
 /**
- *
+ * 博客：https://bugstack.cn - 沉淀、分享、成长，让自己和他人都能有所收获！
+ * 公众号：bugstack虫洞栈
+ * Create by 小傅哥(fustack)
  */
 public class UserService implements IUserService {
 
@@ -15,7 +17,7 @@ public class UserService implements IUserService {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        return "小傅哥，100001，深圳，" + token;
+        return "盟哥，100001，深圳，" + token;
     }
 
     public String register(String userName) {
@@ -34,5 +36,4 @@ public class UserService implements IUserService {
     public void setToken(String token) {
         this.token = token;
     }
-
 }
